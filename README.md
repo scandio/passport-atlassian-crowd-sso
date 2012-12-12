@@ -1,40 +1,43 @@
-# Passport-Local
+# Passport-Atlassian-Crowd
 
-[Passport](http://passportjs.org/) strategy for authenticating with a username
-and password.
+[Passport](http://passportjs.org/) strategy for authenticating [Atlassian Crowd](http://www.atlassian.com/software/crowd/)
+given a username and password.
 
 This module lets you authenticate using a username and password in your Node.js
-applications.  By plugging into Passport, local authentication can be easily and
+applications.  By plugging into Passport, atlassian crowd authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
 ## Installation
 
-    $ npm install passport-local
+    $ npm install passport-atlassian-crowd
 
 ## Usage
 
 #### Configure Strategy
 
-The local authentication strategy authenticates users using a username and
-password.  The strategy requires a `verify` callback, which accepts these
-credentials and calls `done` providing a user.
+The atlassian-crowd authentication strategy authenticates users using a username and
+password via a REST call to your Crowd server.  The strategy requires a `verify` callback, which accepts these
+credentials and calls `done` providing a user.  This strategy can also be used with JIRA running as a crowd server.
+A valid application will have to be configured in Atlassian Crowd to be allowed to make requests.
 
-    passport.use(new LocalStrategy(
-      function(username, password, done) {
-        User.findOne({ username: username }, function (err, user) {
-          if (err) { return done(err); }
-          if (!user) { return done(null, false); }
-          if (!user.verifyPassword(password)) { return done(null, false); }
-          return done(null, user);
-        });
-      }
+    passport.use(new AtlassianCrowdStrategy({
+            crowdServer:"http://localhost:2990/jira",
+            crowdApplication:"nodejs",
+            crowdApplicationPassword:"password"
+        },
+        function (userprofile, done) {
+            Users.findOrCreate(userprofile, function(err,user) {
+                if(err) return done(err);
+                return done(null, user);
+            });
+        }
     ));
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'local'` strategy, to
+Use `passport.authenticate()`, specifying the `'atlassian-crowd'` strategy, to
 authenticate requests.
 
 For example, as route middleware in an [Express](http://expressjs.com/)
@@ -48,18 +51,7 @@ application:
 
 ## Examples
 
-For a complete, working example, refer to the [login example](https://github.com/jaredhanson/passport-local/tree/master/examples/login).
-
-## Tests
-
-    $ npm install --dev
-    $ make test
-
-[![Build Status](https://secure.travis-ci.org/jaredhanson/passport-local.png)](http://travis-ci.org/jaredhanson/passport-local)
-
-## Credits
-
-  - [Jared Hanson](http://github.com/jaredhanson)
+For a complete, working example, refer to the [login example](https://bitbucket.org/knecht_andreas/passport-atlassian-crowd/src/master/examples/login).
 
 ## License
 

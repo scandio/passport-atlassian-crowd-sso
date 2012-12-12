@@ -5,7 +5,7 @@
   "author": { "name": "Andreas Knecht", "email": "knecht.andreas@gmail.com"},
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/knecht_andreas/passport-atlassian-crowd"
+    "url": "https://bitbucket.org/knecht_andreas/passport-atlassian-crowd.git"
   },
   "main": "./lib/passport-atlassian-crowd",
   "dependencies": {

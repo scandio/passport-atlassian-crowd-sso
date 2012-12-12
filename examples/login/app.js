@@ -2,34 +2,11 @@ var express = require('express'),
     http = require('http'),
     passport = require('passport'),
     flash = require('connect-flash'),
+    _ = require('underscore'),
     AtlassianCrowdStrategy = require('passport-atlassian-crowd').Strategy;
 
 
-var users = [
-    { id:1, username:'bob', password:'secret', email:'bob@example.com' }
-    ,
-    { id:2, username:'joe', password:'birthday', email:'joe@example.com' }
-];
-
-function findById(id, fn) {
-    var idx = id - 1;
-    if (users[idx]) {
-        fn(null, users[idx]);
-    } else {
-        fn(new Error('User ' + id + ' does not exist'));
-    }
-}
-
-function findByUsername(username, fn) {
-    for (var i = 0, len = users.length; i < len; i++) {
-        var user = users[i];
-        if (user.username === username) {
-            return fn(null, user);
-        }
-    }
-    return fn(null, null);
-}
-
+var users = [];
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -37,13 +14,18 @@ function findByUsername(username, fn) {
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user.username);
 });
 
-passport.deserializeUser(function (id, done) {
-    findById(id, function (err, user) {
-        done(err, user);
+passport.deserializeUser(function (username, done) {
+    var user = _.find(users, function (user) {
+        return user.username == username;
     });
+    if (user === undefined) {
+        done(new Error("No user with username '" + username + "' found."));
+    } else {
+        done(null, user);
+    }
 });
 
 
@@ -57,26 +39,18 @@ passport.use(new AtlassianCrowdStrategy({
         crowdApplication:"nodejs",
         crowdApplicationPassword:"password"
     },
-    function (username, password, done) {
+    function (userprofile, done) {
         // asynchronous verification, for effect...
         process.nextTick(function () {
 
-            // Find the user by username.  If there is no user with the given
-            // username, or the password is not correct, set the user to `false` to
-            // indicate failure and set a flash message.  Otherwise, return the
-            // authenticated `user`.
-            findByUsername(username, function (err, user) {
-                if (err) {
-                    return done(err);
-                }
-                if (!user) {
-                    return done(null, false, { message:'Unknown user ' + username });
-                }
-                if (user.password != password) {
-                    return done(null, false, { message:'Invalid password' });
-                }
-                return done(null, user);
-            })
+            var exists = _.any(users, function (user) {
+                return user.id = userprofile.id;
+            });
+            if (!exists) {
+                users.push(userprofile);
+            }
+
+            return done(null, userprofile);
         });
     }
 ));
@@ -125,7 +99,7 @@ app.get('/login', function (req, res) {
 //
 //   curl -v -d "username=bob&password=secret" http://127.0.0.1:3000/login
 app.post('/login',
-    passport.authenticate('atlassian-crowd', { failureRedirect:'/login', failureFlash:true }),
+    passport.authenticate('atlassian-crowd', { failureRedirect:'/login'}),
     function (req, res) {
         res.redirect('/');
     });

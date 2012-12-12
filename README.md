@@ -44,7 +44,7 @@ For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
     app.post('/login', 
-      passport.authenticate('local', { failureRedirect: '/login' }),
+      passport.authenticate('atlassian-crowd', { failureRedirect: '/login' }),
       function(req, res) {
         res.redirect('/');
       });

@@ -22,10 +22,14 @@ password via a REST call to your Crowd server.  The strategy requires a `verify`
 credentials and calls `done` providing a user.  This strategy can also be used with JIRA running as a crowd server.
 A valid application will have to be configured in Atlassian Crowd to be allowed to make requests.
 
+Pass an optional `retrieveGroupMemberships:true` flag to populate a `groups` array on the userprofile
+with all the groups the user is a member of in Crowd.
+
     passport.use(new AtlassianCrowdStrategy({
             crowdServer:"http://localhost:2990/jira",
             crowdApplication:"nodejs",
-            crowdApplicationPassword:"password"
+            crowdApplicationPassword:"password",
+            retrieveGroupMemberships:false
         },
         function (userprofile, done) {
             Users.findOrCreate(userprofile, function(err,user) {

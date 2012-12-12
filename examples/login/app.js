@@ -37,7 +37,8 @@ passport.deserializeUser(function (username, done) {
 passport.use(new AtlassianCrowdStrategy({
         crowdServer:"http://localhost:2990/jira",
         crowdApplication:"nodejs",
-        crowdApplicationPassword:"password"
+        crowdApplicationPassword:"password",
+        retrieveGroupMemberships:true
     },
     function (userprofile, done) {
         // asynchronous verification, for effect...

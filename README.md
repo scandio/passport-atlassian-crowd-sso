@@ -57,6 +57,10 @@ application:
 
 For a complete, working example, refer to the [login example](https://bitbucket.org/knecht_andreas/passport-atlassian-crowd/src/master/examples/login).
 
+## Changes
+
+* 0.0.3 - Added support for newer version of Crowd REST API (contributed by Frank Febbraro)
+
 ## License
 
 (The MIT License)

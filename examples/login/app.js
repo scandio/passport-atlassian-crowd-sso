@@ -35,7 +35,7 @@ passport.deserializeUser(function (username, done) {
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
 passport.use(new AtlassianCrowdStrategy({
-        crowdServer:"http://localhost:2990/jira",
+        crowdServer:"http://localhost:2990/jira/",
         crowdApplication:"nodejs",
         crowdApplicationPassword:"password",
         retrieveGroupMemberships:true

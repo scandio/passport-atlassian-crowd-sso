@@ -60,6 +60,7 @@ For a complete, working example, refer to the [login example](https://bitbucket.
 ## Changes
 
 * 0.0.3 - Added support for newer version of Crowd REST API (contributed by Frank Febbraro)
+* 0.0.4 - Fixed a bug with pathname when there's no context path specified in the crowd url
 
 ## License
 

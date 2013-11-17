@@ -1,6 +1,6 @@
 {
     "name":"passport-atlassian-crowd",
-    "version":"0.0.5",
+    "version":"0.0.6",
     "description":"Password authentication strategy using Atlassian Crowd for Passport",
     "author":{
         "name":"Andreas Knecht",
@@ -9,7 +9,8 @@
     "contributors":[
         {
             "name":"Frank Febbraro",
-	    "name":"Jeffrey Mealo"
+	    "name":"Jeffrey Mealo",
+	    "name":"antinodes"
         }
     ],
     "repository":{

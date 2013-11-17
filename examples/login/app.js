@@ -45,7 +45,7 @@ passport.use(new AtlassianCrowdStrategy({
         process.nextTick(function () {
 
             var exists = _.any(users, function (user) {
-                return user.id = userprofile.id;
+                return user.id == userprofile.id;
             });
             if (!exists) {
                 users.push(userprofile);

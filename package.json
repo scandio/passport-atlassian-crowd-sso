@@ -1,6 +1,6 @@
 {
     "name":"passport-atlassian-crowd",
-    "version":"0.0.7",
+    "version":"0.0.8",
     "description":"Password authentication strategy using Atlassian Crowd for Passport",
     "author":{
         "name":"Andreas Knecht",

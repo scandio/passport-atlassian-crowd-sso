@@ -59,7 +59,7 @@ For a complete, working example, refer to the [login example](https://bitbucket.
 
 ## Changes
 
-* 0.0.6 - Number of fixes contribued by Billy Keyes: Update dependecy to passport-strategy, fixed duplicate callbacks, excessive logging and support for additional request params
+* 0.0.7 - Number of fixes contribued by Billy Keyes: Update dependecy to passport-strategy, fixed duplicate callbacks, excessive logging and support for additional request params
 * 0.0.3 - Added support for newer version of Crowd REST API (contributed by Frank Febbraro)
 * 0.0.4 - Fixed a bug with pathname when there's no context path specified in the crowd url
 * 0.0.5 - Better error handling

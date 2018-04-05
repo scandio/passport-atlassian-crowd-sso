@@ -1,25 +1,27 @@
-# Passport-Atlassian-Crowd
+# Passport-Atlassian-Crowd-SSO
+
+This module is a fork of [Passport Atlassian Crowd](https://bitbucket.org/knecht_andreas/passport-atlassian-crowd) by Andreas Knecht.
 
 [Passport](http://passportjs.org/) strategy for authenticating [Atlassian Crowd](http://www.atlassian.com/software/crowd/)
-given a username and password.
+given a username and password and using the SSO token from [Atlassian Crowd](http://www.atlassian.com/software/crowd/).
 
 This module lets you authenticate using a username and password in your Node.js
-applications.  By plugging into Passport, atlassian crowd authentication can be easily and
+applications. By plugging into Passport, atlassian crowd authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
 ## Installation
 
-    $ npm install passport-atlassian-crowd
+    $ npm install passport-atlassian-crowd-sso
 
 ## Usage
 
 #### Configure Strategy
 
 The atlassian-crowd authentication strategy authenticates users using a username and
-password via a REST call to your Crowd server.  The strategy requires a `verify` callback, which accepts these
-credentials and calls `done` providing a user.  This strategy can also be used with JIRA running as a crowd server.
+password via a REST call to your Crowd server. The strategy requires a `verify` callback, which accepts these
+credentials and calls `done` providing a user. This strategy can also be used with JIRA running as a crowd server.
 A valid application will have to be configured in Atlassian Crowd to be allowed to make requests.
 
 Pass an optional `retrieveGroupMemberships:true` flag to populate a `groups` array on the userprofile
@@ -47,7 +49,7 @@ authenticate requests.
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-    app.post('/login', 
+    app.post('/login',
       passport.authenticate('atlassian-crowd', { failureRedirect: '/login' }),
       function(req, res) {
         res.redirect('/');
@@ -68,7 +70,8 @@ For a complete, working example, refer to the [login example](https://bitbucket.
 
 (The MIT License)
 
-Copyright (c) 2012 Andreas Knecht
+Original work Copyright (c) 2012 Andreas Knecht
+Modified work Copyright (c) 2018 Scandio GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

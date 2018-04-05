@@ -1,35 +1,37 @@
 {
-    "name":"passport-atlassian-crowd",
-    "version":"0.0.8",
-    "description":"Password authentication strategy using Atlassian Crowd for Passport",
-    "author":{
-        "name":"Andreas Knecht",
-        "email":"knecht.andreas@gmail.com"
-    },
-    "contributors":[
-        {
-            "name":"Frank Febbraro",
-	    "name":"Jeffrey Mealo",
-	    "name":"antinodes"
-        }
-    ],
-    "repository":{
-        "type":"git",
-        "url":"https://bitbucket.org/knecht_andreas/passport-atlassian-crowd.git"
-    },
-    "main":"./lib/passport-atlassian-crowd",
-    "dependencies":{
-        "pkginfo":"0.2.x",
-        "passport-strategy":"1.x.x"
-    },
-    "engines":{
-        "node":">= 0.4.0"
-    },
-    "licenses":[
-        {
-            "type":"MIT",
-            "url":"http://www.opensource.org/licenses/MIT"
-        }
-    ],
-    "keywords":["passport", "atlassian", "crowd", "auth", "authn", "authentication"]
+  "name": "passport-atlassian-crowd-sso",
+  "version": "1.0.0",
+  "description":
+    "Password authentication strategy using Atlassian Crowd SSO for Passport",
+  "author": {
+    "name": "Scandio GmbH",
+    "email": "maximilian.gaesslein@scandio.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:scandio/passport-atlassian-crowd-sso.git"
+  },
+  "main": "./lib/passport-atlassian-crowd-sso",
+  "dependencies": {
+    "pkginfo": "0.2.x",
+    "passport-strategy": "1.x.x"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": [
+    "passport",
+    "atlassian",
+    "crowd",
+    "auth",
+    "authn",
+    "authentication",
+    "sso"
+  ]
 }

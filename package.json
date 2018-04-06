@@ -5,7 +5,7 @@
     "Password authentication strategy using Atlassian Crowd SSO for Passport",
   "author": {
     "name": "Scandio GmbH",
-    "email": "maximilian.gaesslein@scandio.de"
+    "email": "info@scandio.de"
   },
   "repository": {
     "type": "git",

@@ -59,18 +59,11 @@ application:
 
 For a complete, working example, refer to the [login example](https://bitbucket.org/knecht_andreas/passport-atlassian-crowd/src/master/examples/login).
 
-## Changes
-
-* 0.0.8 - Number of fixes contribued by Billy Keyes: Update dependecy to passport-strategy, fixed duplicate callbacks, excessive logging and support for additional request params
-* 0.0.3 - Added support for newer version of Crowd REST API (contributed by Frank Febbraro)
-* 0.0.4 - Fixed a bug with pathname when there's no context path specified in the crowd url
-* 0.0.5 - Better error handling
-
 ## License
 
 (The MIT License)
 
-Original work Copyright (c) 2012 Andreas Knecht
+Original work Copyright (c) 2012 Andreas Knecht\
 Modified work Copyright (c) 2018 Scandio GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

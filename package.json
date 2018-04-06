@@ -1,8 +1,7 @@
 {
   "name": "@scandio/passport-atlassian-crowd-sso",
-  "version": "1.0.1",
-  "description":
-    "Password authentication strategy using Atlassian Crowd SSO for Passport",
+  "version": "1.0.2",
+  "description": "Password authentication strategy using Atlassian Crowd SSO for Passport",
   "author": "Scandio GmbH <info@scandio.de>",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 # Passport-Atlassian-Crowd-SSO
 
-This module is a fork of [Passport Atlassian Crowd](https://bitbucket.org/knecht_andreas/passport-atlassian-crowd) by Andreas Knecht.
+This module is a fork of [Passport Atlassian Crowd](https://bitbucket.org/atlassianlabs/passport-atlassian-crowd) by Andreas Knecht.
 
 [Passport](http://passportjs.org/) strategy for authenticating [Atlassian Crowd](http://www.atlassian.com/software/crowd/)
 given a username and password and using the SSO token from [Atlassian Crowd](http://www.atlassian.com/software/crowd/).
@@ -13,7 +13,7 @@ unobtrusively integrated into any application or framework that supports
 
 ## Installation
 
-    $ npm install passport-atlassian-crowd-sso
+    $ npm install @scandio/passport-atlassian-crowd-sso
 
 ## Usage
 

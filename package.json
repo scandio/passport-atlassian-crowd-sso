@@ -1,15 +1,20 @@
 {
-  "name": "passport-atlassian-crowd-sso",
+  "name": "@scandio/passport-atlassian-crowd-sso",
   "version": "1.0.0",
   "description":
     "Password authentication strategy using Atlassian Crowd SSO for Passport",
-  "author": {
-    "name": "Scandio GmbH",
-    "email": "info@scandio.de"
-  },
+  "author": "Scandio GmbH <info@scandio.de>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:scandio/passport-atlassian-crowd-sso.git"
+    "url": "git+ssh://git@github.com/scandio/passport-atlassian-crowd-sso.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scandio/passport-atlassian-crowd-sso/issues"
+  },
+  "homepage": "https://github.com/scandio/passport-atlassian-crowd-sso#readme",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
   },
   "main": "./lib/passport-atlassian-crowd-sso",
   "dependencies": {
